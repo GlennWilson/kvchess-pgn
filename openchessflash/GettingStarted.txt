@@ -1,0 +1,72 @@
+-- Development Environment --
+
+To develop ChessFlash I use the free and excellent FlashDevelop from
+http://www.flashdevelop.org/
+(I am currently using FlashDevelop 3.0.0 RC1)
+
+To use FlashDevelop you will also need (as described at the FlashDevelop site)
+  Java JDK 1.6+
+  Adobe Flex 3 SDK (I am currently using verions 3.2 / 3.2.0.3958)
+
+  Flash Player ActiveX control content debugger
+  Flash Player 10 Projector content debugger
+  (I am currently using debugger versions 10.0.12.36.)
+
+Install the Java JDK
+Unzip the Flex SDK
+Run the Flash Player ActiveX installer
+Run the FlashDevelop Installer (the default choices should be fine)
+
+-- Build and Run the ChessFlash Project --
+
+Run FlashDevelop
+FlashDevelop Menu: File>Open chessflash.as3proj (in this project).
+In project tree: src\chessflash\PgnViewer rightclick and select always compile.
+FlashDevelop Menu: Project>Test Movie
+
+The first time you run this, you wil be asked asked to configure AS3 context settings.
+In AS3Context settings specify the path to the Adobe Flex 3 SDK unzipped above.
+
+Again, try FlashDevelop Menu: Project>Test Movie.
+ChessFlash should be running in your FlashDevelop IDE.
+
+-- Show a real game (pgn file) --
+
+You may want to change the default _pgnUrl in the initialize method of chessflash.PgnViewer 
+to point to a valid file (see the comments in the source for some examples) while you are 
+running this locally.
+
+-- Unit tests and AsUnit --
+
+You can download the AsUnit Framework from http://sourceforge.net/projects/asunit.
+See asunit\readme.txt in this project for more information.
+
+From the AsUnit Frameowrk package, I take the as3 source and add it to my project in 
+a directory called asunit.  This will allow you to run the existing unit tests and create 
+and run new ones.  Your project folder in FlashDevelop will look something like:
+
+ChessFlash (AS3)
+  asunit (if you have downloaded and copied it to your project)
+    asunit
+	  ...
+  bin (created when you build)
+  lib
+  src
+    chessflash
+	  ...
+  test
+    chessflash
+       ...
+  
+If you do add AsUnit source to the project, before you can run the unit tests
+you need to tell FlashDevelop to include all source directories (asunit, src, test):
+FlashDevelop Menu: Project>Properties>Classpaths
+
+Now you can run the tests in the chessflash.engine package by:
+In project tree: test\chessflash\engine\AsUnitTestRunner rightclick and select always compile
+FlashDevelop Menu: Project>Test Movie
+
+
+Glenn Wilson 
+glenn.wilson@gmail.com
+Last updated: February 28, 2009.

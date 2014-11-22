@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>ChessFlash Mobile</title>
+    <style type="text/css">
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      body, #stage {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <div id="stage1">
+      Loading 1 ...
+    </div>
+    <div id="stage2">
+      Loading 2 ...
+    </div>
+    <div id="stage3">
+      Loading 3 ...
+    </div>
+    <div id="stage4">
+      Loading 4 ...
+    </div>
+
+   <!-- configure "joo" object *before* loading jangaroo-application.js: -->
+   <script type="text/javascript">
+     joo = {
+       debug: true 
+     };
+   </script>
+
+   <script type="text/javascript" src="joo/jangaroo-application.js"></script>
+    <script type="text/javascript">
+      <!--
+       function parsequery(p) {
+         var q;
+         
+         if (p == null) {  // handle null
+           q = {};
+           q['empty']='empty';
+           return q;
+         }
+
+         if (p.indexOf('?') > -1) {  // handle has xxxx? before query data
+           q = p.split('?')[1]; 
+         } else {  // handle no ? before query string
+           q = p;
+         }        
+         var x = q.split('&'), i, name, t;
+         for (q={}, i=0; i<x.length; i++) {
+           t = x[i].split('=', 2);
+           name = unescape(t[0]);
+           if (!q[name]) {
+             q[name] = [];
+             if (t.length > 1) {
+               q[name][q[name].length] = unescape(t[1]);
+             }
+          }
+        }
+        return q;
+      }
+
+      function param() {
+        return parsequery(location.search);
+      }
+    </script>
+    
+    <script type="text/javascript">
+    
+      joo.classLoader.run("chessflash.RunCF", "stage1", "chessflash.Inline400", param());
+      joo.classLoader.run("chessflash.RunCF", "stage2", "chessflash.Inline400", param());//parsequery("?dark=cc6666&pgndata=1. e4 e5 2. f4"));
+      joo.classLoader.run("chessflash.RunCF", "stage3", "chessflash.Inline400", param());//parsequery("?dark=cc6666&pgndata=1. e4 e5 2. f4"));
+
+    </script>
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2845459-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+   
+  </body>
+</html>
